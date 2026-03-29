@@ -1,6 +1,77 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from dotenv import load_dotenv
+import openai
+import os
+import requests
+
+load_dotenv()
+VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
+
 app = FastAPI()
 
 @app.get("/")
 def read_root():
     return {"Server": "Running"}
+
+#------------------Verify Webhook----------------------
+@app.get("/webhook")
+async def verify(mode: str = None, verify_token: str = None, challenge: str = None):
+    if verify_token == VERIFY_TOKEN:
+        return int(challenge)
+    return {"error": "Verification failed"}
+
+#--------------Receive Instagram Messages-------------------
+@app.post("/webhook")
+async def receive_message(request: Request):
+    data = await request.json()
+
+    try:
+        message = data["entry"][0]["messaging"][0]
+        sender_id = message["sender"]["id"]
+        text = message["message"]["text"]
+
+        reply = generate_ai_reply(text)
+
+        send_instagram_message(sender_id, reply)
+
+    except Exception as e:
+        print("Error:", e)
+
+    return {"status": "ok"}
+
+#------------------AI Reply Function----------------------
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+def generate_ai_reply(user_text):
+    response = openai.ChatCompletion.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are a helpful Instagram assistant."},
+            {"role": "user", "content": user_text}
+        ]
+    )
+    return response.choices[0].message.content
+
+
+#------------------Send Reply to Instagram----------------------
+
+PAGE_ACCESS_TOKEN = "your_page_access_token"
+
+def send_instagram_message(user_id, message_text):
+    url = f"https://graph.facebook.com/v18.0/me/messages"
+
+    headers = {
+        "Authorization": f"Bearer {PAGE_ACCESS_TOKEN}",
+        "Content-Type": "application/json"
+    }
+
+    data = {
+        "recipient": {"id": user_id},
+        "message": {"text": message_text}
+    }
+
+    requests.post(url, headers=headers, json=data)
+
+
+
