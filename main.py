@@ -29,20 +29,25 @@ async def verify(
 @app.post("/webhook")
 async def receive_message(request: Request):
     data = await request.json()
-    print("Incoming:", data)  # 👈 ALWAYS keep this for debugging
+    print("Incoming:", data)
 
     try:
-        entry = data["entry"][0]
-        changes = entry["changes"][0]
-        value = changes["value"]
+        entry = data.get("entry", [])[0]
+        changes = entry.get("changes", [])[0]
+        value = changes.get("value", {})
 
         if "messages" in value:
             message = value["messages"][0]
-            sender_id = message["from"]
-            text = message["text"]["body"]
+            sender_id = message.get("from")
 
-            reply = generate_ai_reply(text)
-            send_instagram_message(sender_id, reply)
+            # safer text extraction
+            text = message.get("text", {}).get("body")
+
+            if text:
+                reply = generate_ai_reply(text)
+                send_instagram_message(sender_id, reply)
+            else:
+                print("Non-text message received")
 
     except Exception as e:
         print("Error:", e)
