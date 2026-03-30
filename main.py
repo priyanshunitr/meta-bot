@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from dotenv import load_dotenv
-import openai
+from openai import OpenAI
 import os
 import requests
 
@@ -41,22 +41,22 @@ async def receive_message(request: Request):
 
 #------------------AI Reply Function----------------------
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_ai_reply(user_text):
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are a helpful Instagram assistant."},
             {"role": "user", "content": user_text}
         ]
     )
-    return response.choices[0].message.content
+    return response.choices[0].message.content or ""
 
 
 #------------------Send Reply to Instagram----------------------
 
-PAGE_ACCESS_TOKEN = "your_page_access_token"
+PAGE_ACCESS_TOKEN = os.getenv("PAGE_ACCESS_TOKEN", "")
 
 def send_instagram_message(user_id, message_text):
     url = f"https://graph.facebook.com/v18.0/me/messages"
