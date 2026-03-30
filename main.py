@@ -61,13 +61,13 @@ def generate_ai_reply(user_text):
 
 #------------------Send Reply to Instagram----------------------
 
-PAGE_ACCESS_TOKEN = os.getenv("PAGE_ACCESS_TOKEN", "")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN", "")
 
 def send_instagram_message(user_id, message_text):
     url = f"https://graph.facebook.com/v18.0/me/messages"
 
     headers = {
-        "Authorization": f"Bearer {PAGE_ACCESS_TOKEN}",
+        "Authorization": f"Bearer {ACCESS_TOKEN}",
         "Content-Type": "application/json"
     }
 
