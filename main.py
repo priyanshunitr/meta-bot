@@ -15,10 +15,15 @@ def read_root():
 
 #------------------Verify Webhook----------------------
 @app.get("/webhook")
-async def verify(mode: str = None, verify_token: str = None, challenge: str = None):
-    if verify_token == VERIFY_TOKEN:
-        return int(challenge)
-    return {"error": "Verification failed"}
+async def verify(
+    hub_mode: str = None,
+    hub_verify_token: str = None,
+    hub_challenge: str = None
+):
+    if hub_verify_token == VERIFY_TOKEN:
+        return int(hub_challenge)
+
+    return "error"
 
 #--------------Receive Instagram Messages-------------------
 @app.post("/webhook")
