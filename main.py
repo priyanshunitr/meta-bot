@@ -82,7 +82,7 @@ async def receive_message(request: Request):
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 
 def send_instagram_message(recipient_id, message_text):
-    url = f"https://graph.facebook.com/v18.0/{recipient_id}/messages"
+    url = "https://graph.facebook.com/v18.0/17841448023461323/messages"
 
     params = {
         "access_token": ACCESS_TOKEN
