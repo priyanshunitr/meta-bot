@@ -58,7 +58,7 @@ async def receive_message(request: Request):
         if text:
             print(f"User: {text}")
 
-            reply = generate_reply(text)
+            reply = await generate_reply(text)
             send_instagram_message(sender_id, reply)
 
             print(f"Bot: {reply}")
