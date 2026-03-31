@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Request
 from dotenv import load_dotenv
-from openai import OpenAI
 import os
 import requests
+from ai_model import generate_reply
 
 load_dotenv()
 VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
@@ -44,7 +44,7 @@ async def receive_message(request: Request):
             text = message.get("text", {}).get("body")
 
             if text:
-                reply = generate_ai_reply(text)
+                reply = generate_reply(text)
                 send_instagram_message(sender_id, reply)
             else:
                 print("Non-text message received")
@@ -54,39 +54,25 @@ async def receive_message(request: Request):
 
     return {"status": "ok"}
 
-#------------------AI Reply Function----------------------
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-def generate_ai_reply(user_text):
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "You are a helpful Instagram assistant."},
-            {"role": "user", "content": user_text}
-        ]
-    )
-    return response.choices[0].message.content or ""
-
 
 #------------------Send Reply to Instagram----------------------
 
-ACCESS_TOKEN = os.getenv("ACCESS_TOKEN", "")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 
-def send_instagram_message(user_id, message_text):
-    url = f"https://graph.facebook.com/v18.0/me/messages"
+def send_instagram_message(recipient_id, message_text):
+    url = "https://graph.facebook.com/v18.0/me/messages"
 
-    headers = {
-        "Authorization": f"Bearer {ACCESS_TOKEN}",
-        "Content-Type": "application/json"
+    params = {
+        "access_token": ACCESS_TOKEN
     }
 
-    data = {
-        "recipient": {"id": user_id},
+    payload = {
+        "recipient": {"id": recipient_id},
         "message": {"text": message_text}
     }
 
-    requests.post(url, headers=headers, json=data)
+    response = requests.post(url, params=params, json=payload)
+    print("Send response:", response.text)
 
 
 

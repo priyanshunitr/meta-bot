@@ -23,7 +23,7 @@ async def generate_reply(message: str):
         if message == "exit":
             break
 
-        chat_history.append(HumanMessage(content = message))
+        chat_history.append(HumanMessage(content = ("User: " + message)))
         prompt = template.invoke({'recorded_chats': chat_history })
 
         result = await model.ainvoke (prompt)
@@ -32,4 +32,4 @@ async def generate_reply(message: str):
 
         return result.content
 
-print(asyncio.run(generate_reply("Who are you?")))
+#print(asyncio.run(generate_reply("Who are you?")))
