@@ -26,34 +26,50 @@ async def verify(
     return "error"
 
 #--------------Receive Instagram Messages-------------------
+
 @app.post("/webhook")
 async def receive_message(request: Request):
     data = await request.json()
     print("Incoming:", data)
 
     try:
-        entry = data.get("entry", [])[0]
-        changes = entry.get("changes", [])[0]
-        value = changes.get("value", {})
+        # Step 1: Check entry exists
+        entry_list = data.get("entry")
+        if not entry_list:
+            return {"status": "no entry"}
 
-        if "messages" in value:
-            message = value["messages"][0]
-            sender_id = message.get("from")
+        entry = entry_list[0]
 
-            # safer text extraction
-            text = message.get("text", {}).get("body")
+        # Step 2: Check messaging exists
+        messaging_list = entry.get("messaging")
+        if not messaging_list:
+            return {"status": "no messaging"}
 
-            if text:
-                reply = generate_reply(text)
-                send_instagram_message(sender_id, reply)
-            else:
-                print("Non-text message received")
+        msg_event = messaging_list[0]
+
+        # Step 3: Extract message safely
+        sender_id = msg_event.get("sender", {}).get("id")
+        message = msg_event.get("message", {})
+        text = message.get("text")
+
+        if not sender_id:
+            return {"status": "no sender"}
+
+        if text:
+            print(f"User: {text}")
+
+            reply = generate_reply(text)
+            send_instagram_message(sender_id, reply)
+
+            print(f"Bot: {reply}")
+
+        else:
+            print("Non-text message received")
 
     except Exception as e:
-        print("Error:", e)
+        print("Error:", str(e))
 
     return {"status": "ok"}
-
 
 #------------------Send Reply to Instagram----------------------
 
