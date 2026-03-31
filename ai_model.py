@@ -19,14 +19,17 @@ template = ChatPromptTemplate([
 ])
 
 async def generate_reply(message: str):
+    while True:
+        if message == "exit":
+            break
 
-    chat_history.append(HumanMessage(content="User: " + message))
-    prompt = template.invoke({'recorded_chats': chat_history })
+        chat_history.append(HumanMessage(content = message))
+        prompt = template.invoke({'recorded_chats': chat_history })
 
-    result = await model.ainvoke (prompt)
+        result = await model.ainvoke (prompt)
 
-    chat_history.append(AIMessage(content=("Bot: " + result.content)))
+        chat_history.append(AIMessage(content=("Bot: " + result.content)))
 
-    return result.content
+        return result.content
 
 print(asyncio.run(generate_reply("Who are you?")))
