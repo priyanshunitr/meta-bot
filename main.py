@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request
+from pydantic import BaseModel
 from dotenv import load_dotenv
 import os
 import requests
@@ -8,6 +9,11 @@ load_dotenv()
 VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
 
 app = FastAPI()
+
+
+class SendMessageRequest(BaseModel):
+    recipient_id: str
+    message_text: str
 
 @app.get("/")
 def read_root():
@@ -90,5 +96,9 @@ def send_instagram_message(recipient_id, message_text):
     response = requests.post(url, params=params, json=payload)
     print("Send response:", response.text)
 
+@app.post("/send_message")
+async def send_message_endpoint(payload: SendMessageRequest):
+    send_instagram_message(payload.recipient_id, payload.message_text)
+    return {"status": "message sent"}
 
 

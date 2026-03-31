@@ -1,8 +1,11 @@
+import os
+from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
-model = ChatOpenAI()
+load_dotenv()
+model = ChatOpenAI(OPENAI_API_KEY = os.getenv("OPENAI_API_KEY"))
 
 chat_history = [
     SystemMessage(content='You are a helpful AI assistant')
