@@ -62,7 +62,7 @@ async def receive_message(request: Request):
                     print(f"User (DM): {text}")
 
                     reply = await generate_reply(text)
-                    send_instagram_message(sender_id, reply, ACCESS_TOKEN)
+                    send_instagram_message(sender_id, reply)
 
                     print(f"Bot: {reply}")
 
@@ -126,15 +126,14 @@ def send_instagram_message(recipient_id, text):
 
 #------------------Send comment reply to Instagram----------------------
 
-def send_instagram_comment_reply(comment_id: str, message: str, access_token: str):
+def send_instagram_comment_reply(comment_id: str, message: str):
     """
     Sends a reply to an Instagram comment using Meta Graph API.
 
     Args:
         comment_id (str): ID of the Instagram comment
         message (str): Reply text
-        access_token (str): Valid Page Access Token with instagram_manage_comments permission
-
+        
     Returns:
         dict: API response (success or error)
     """
@@ -143,7 +142,7 @@ def send_instagram_comment_reply(comment_id: str, message: str, access_token: st
 
     params = {
         "message": message,
-        "access_token": access_token
+        "access_token": ACCESS_TOKEN
     }
 
     try:
