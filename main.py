@@ -39,39 +39,55 @@ async def receive_message(request: Request):
     print("Incoming:", data)
 
     try:
-        # Step 1: Check entry exists
         entry_list = data.get("entry")
         if not entry_list:
             return {"status": "no entry"}
 
-        entry = entry_list[0]
+        for entry in entry_list:
 
-        # Step 2: Check messaging exists
-        messaging_list = entry.get("messaging")
-        if not messaging_list:
-            return {"status": "no messaging"}
+            # ===== DMs =====
+            messaging_list = entry.get("messaging")
+            if messaging_list:
+                for msg_event in messaging_list:
 
-        msg_event = messaging_list[0]
+                    if msg_event.get("message", {}).get("is_echo"):
+                        continue
 
-        # Step 3: Extract message safely
-        sender_id = msg_event.get("sender", {}).get("id")
-        message = msg_event.get("message", {})
-        text = message.get("text")
+                    sender_id = msg_event.get("sender", {}).get("id")
+                    text = msg_event.get("message", {}).get("text")
 
-        if not sender_id:
-            return {"status": "no sender"}
+                    if not sender_id or not text:
+                        continue
 
-        if text:
-            print(f"User: {text}")
+                    print(f"User (DM): {text}")
 
-            reply = await generate_reply(text)
-            send_instagram_message(sender_id, reply)
-            print("Sender ID:", sender_id)
+                    reply = await generate_reply(text)
+                    send_instagram_message(sender_id, reply)
 
-            print(f"Bot: {reply}")
+                    print(f"Bot: {reply}")
 
-        else:
-            print("Non-text message received")
+            # ===== Comments =====
+            elif entry.get("changes"):
+                for change in entry.get("changes"):
+
+                    if change.get("field") != "comments":
+                        continue
+
+                    value = change.get("value", {})
+
+                    comment_id = value.get("id")
+                    text = value.get("text")
+                    username = value.get("from", {}).get("username")
+
+                    if not text:
+                        continue
+
+                    print(f"{username} (comment): {text}")
+
+                    reply = await generate_reply(text)
+                    send_instagram_comment_reply(comment_id, reply)
+
+                    print(f"Bot (comment reply): {reply}")
 
     except Exception as e:
         print("Error:", str(e))
@@ -106,5 +122,43 @@ def send_instagram_message(recipient_id, text):
     response = requests.post(url, json=payload, params=params)
 
     print("Send response:", response.text)
+
+
+#------------------Send comment reply to Instagram----------------------
+
+def send_instagram_comment_reply(comment_id: str, message: str, access_token: str):
+    """
+    Sends a reply to an Instagram comment using Meta Graph API.
+
+    Args:
+        comment_id (str): ID of the Instagram comment
+        message (str): Reply text
+        access_token (str): Valid Page Access Token with instagram_manage_comments permission
+
+    Returns:
+        dict: API response (success or error)
+    """
+
+    url = f"https://graph.facebook.com/v19.0/{comment_id}/replies"
+
+    params = {
+        "message": message,
+        "access_token": access_token
+    }
+
+    try:
+        response = requests.post(url, params=params)
+        data = response.json()
+
+        if response.status_code == 200:
+            print("✅ Reply sent successfully")
+        else:
+            print("❌ Error:", data)
+
+        return data
+
+    except Exception as e:
+        print("⚠️ Exception occurred:", str(e))
+        return {"error": str(e)}
 
 
