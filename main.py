@@ -78,6 +78,9 @@ async def receive_message(request: Request):
                     comment_id = value.get("id")
                     text = value.get("text")
                     username = value.get("from", {}).get("username")
+                    commenter_id = value.get("from", {}).get("id")
+                    if commenter_id == "17841452076255595":
+                        continue
 
                     if not text:
                         continue
