@@ -105,7 +105,7 @@ ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 import requests
 
 def send_instagram_message(recipient_id, text):
-    url = "https://graph.facebook.com/v19.0/me/messages"
+    url = "https://graph.facebook.com/v19.0/1107771282409772/messages"
 
     payload = {
         "recipient": {
