@@ -46,28 +46,30 @@ async def receive_message(request: Request):
         for entry in entry_list:
 
             # ===== DMs =====
-            messaging_list = entry.get("messaging")
-            if messaging_list:
-                for msg_event in messaging_list:
+            # messaging_list = entry.get("messaging")
+            # if messaging_list:
+            #     for msg_event in messaging_list:
 
-                    if msg_event.get("message", {}).get("is_echo"):
-                        continue
+            #         if msg_event.get("message", {}).get("is_echo"):
+            #             continue
 
-                    sender_id = msg_event.get("sender", {}).get("id")
-                    text = msg_event.get("message", {}).get("text")
+            #         sender_id = msg_event.get("sender", {}).get("id")
+            #         text = msg_event.get("message", {}).get("text")
 
-                    if not sender_id or not text:
-                        continue
+            #         if not sender_id or not text:
+            #             continue
 
-                    print(f"User (DM): {text}")
+            #         print(f"User (DM): {text}")
 
-                    reply = await generate_reply(text)
-                    send_instagram_message(sender_id, reply)
+            #         reply = await generate_reply(text)
+            #         send_instagram_message(sender_id, reply)
 
-                    print(f"Bot: {reply}")
+            #         print(f"Bot: {reply}")
 
             # ===== Comments =====
-            elif entry.get("changes"):
+            processed_comments = set()
+
+            if entry.get("changes"):
                 for change in entry.get("changes"):
 
                     if change.get("field") != "comments":
@@ -79,7 +81,19 @@ async def receive_message(request: Request):
                     text = value.get("text")
                     username = value.get("from", {}).get("username")
                     commenter_id = value.get("from", {}).get("id")
-                    if commenter_id == "17841452076255595":
+
+                    # Ignore replies (prevents loops)
+                    if value.get("parent_id"):
+                        continue
+
+                    # Deduplicate
+                    if comment_id in processed_comments:
+                        continue
+
+                    processed_comments.add(comment_id)
+
+                    # Ignore bot itself
+                    if username == "_clinqo":
                         continue
 
                     if not text:
@@ -89,8 +103,8 @@ async def receive_message(request: Request):
 
                     reply = await generate_reply(text)
                     send_instagram_comment_reply(comment_id, reply)
-                    print("Comment ID:", comment_id)
 
+                    print("Comment ID:", comment_id)
                     print(f"Bot (comment reply): {reply}")
 
     except Exception as e:
@@ -109,7 +123,7 @@ def send_instagram_message(recipient_id, text):
 
     payload = {
         "recipient": {
-            "id": recipient_id   # ✅ MUST use this
+            "id": recipient_id   
         },
         "message": {
             "text": text
@@ -117,10 +131,10 @@ def send_instagram_message(recipient_id, text):
     }
 
     params = {
-        "access_token": ACCESS_TOKEN  # ✅ Page token only
+        "access_token": ACCESS_TOKEN  # Page token
     }
 
-    print("Sending to:", recipient_id)   # 🔍 debug
+    print("Sending to:", recipient_id)  
     print("Payload:", payload)
 
     response = requests.post(url, json=payload, params=params)
