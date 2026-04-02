@@ -1,13 +1,19 @@
 from fastapi import FastAPI, Request
+from pydantic import BaseModel
 from dotenv import load_dotenv
-from openai import OpenAI
 import os
 import requests
+from ai_model import generate_reply
 
 load_dotenv()
 VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
 
 app = FastAPI()
+
+
+class SendMessageRequest(BaseModel):
+    recipient_id: str
+    message_text: str
 
 @app.get("/")
 def read_root():
@@ -26,67 +32,132 @@ async def verify(
     return "error"
 
 #--------------Receive Instagram Messages-------------------
+
 @app.post("/webhook")
 async def receive_message(request: Request):
     data = await request.json()
     print("Incoming:", data)
 
     try:
-        entry = data.get("entry", [])[0]
-        changes = entry.get("changes", [])[0]
-        value = changes.get("value", {})
+        entry_list = data.get("entry")
+        if not entry_list:
+            return {"status": "no entry"}
 
-        if "messages" in value:
-            message = value["messages"][0]
-            sender_id = message.get("from")
+        for entry in entry_list:
 
-            # safer text extraction
-            text = message.get("text", {}).get("body")
+            # ===== DMs =====
+            messaging_list = entry.get("messaging")
+            if messaging_list:
+                for msg_event in messaging_list:
 
-            if text:
-                reply = generate_ai_reply(text)
-                send_instagram_message(sender_id, reply)
-            else:
-                print("Non-text message received")
+                    if msg_event.get("message", {}).get("is_echo"):
+                        continue
+
+                    sender_id = msg_event.get("sender", {}).get("id")
+                    text = msg_event.get("message", {}).get("text")
+
+                    if not sender_id or not text:
+                        continue
+
+                    print(f"User (DM): {text}")
+
+                    reply = await generate_reply(text)
+                    send_instagram_message(sender_id, reply)
+
+                    print(f"Bot: {reply}")
+
+            # ===== Comments =====
+            elif entry.get("changes"):
+                for change in entry.get("changes"):
+
+                    if change.get("field") != "comments":
+                        continue
+
+                    value = change.get("value", {})
+
+                    comment_id = value.get("id")
+                    text = value.get("text")
+                    username = value.get("from", {}).get("username")
+
+                    if not text:
+                        continue
+
+                    print(f"{username} (comment): {text}")
+
+                    reply = await generate_reply(text)
+                    send_instagram_comment_reply(comment_id, reply)
+
+                    print(f"Bot (comment reply): {reply}")
 
     except Exception as e:
-        print("Error:", e)
+        print("Error:", str(e))
 
     return {"status": "ok"}
 
-#------------------AI Reply Function----------------------
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-def generate_ai_reply(user_text):
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "You are a helpful Instagram assistant."},
-            {"role": "user", "content": user_text}
-        ]
-    )
-    return response.choices[0].message.content or ""
-
-
 #------------------Send Reply to Instagram----------------------
 
-ACCESS_TOKEN = os.getenv("ACCESS_TOKEN", "")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 
-def send_instagram_message(user_id, message_text):
-    url = f"https://graph.facebook.com/v18.0/me/messages"
+import requests
 
-    headers = {
-        "Authorization": f"Bearer {ACCESS_TOKEN}",
-        "Content-Type": "application/json"
+def send_instagram_message(recipient_id, text):
+    url = "https://graph.facebook.com/v19.0/me/messages"
+
+    payload = {
+        "recipient": {
+            "id": recipient_id   # ✅ MUST use this
+        },
+        "message": {
+            "text": text
+        }
     }
 
-    data = {
-        "recipient": {"id": user_id},
-        "message": {"text": message_text}
+    params = {
+        "access_token": ACCESS_TOKEN  # ✅ Page token only
     }
 
-    requests.post(url, headers=headers, json=data)
+    print("Sending to:", recipient_id)   # 🔍 debug
+    print("Payload:", payload)
 
+    response = requests.post(url, json=payload, params=params)
+
+    print("Send response:", response.text)
+
+
+#------------------Send comment reply to Instagram----------------------
+
+def send_instagram_comment_reply(comment_id: str, message: str):
+    """
+    Sends a reply to an Instagram comment using Meta Graph API.
+
+    Args:
+        comment_id (str): ID of the Instagram comment
+        message (str): Reply text
+        
+    Returns:
+        dict: API response (success or error)
+    """
+
+    url = f"https://graph.facebook.com/v19.0/{comment_id}/replies"
+
+    params = {
+        "message": message,
+        "access_token": ACCESS_TOKEN
+    }
+
+    try:
+        response = requests.post(url, params=params)
+        data = response.json()
+
+        if response.status_code == 200:
+            print("✅ Reply sent successfully")
+        else:
+            print("❌ Error:", data)
+
+        return data
+
+    except Exception as e:
+        print("⚠️ Exception occurred:", str(e))
+        return {"error": str(e)}
 
 
