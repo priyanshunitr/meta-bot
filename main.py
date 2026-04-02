@@ -33,6 +33,8 @@ async def verify(
 
 #--------------Receive Instagram Messages-------------------
 
+processed_comments = set()
+
 @app.post("/webhook")
 async def receive_message(request: Request):
     data = await request.json()
@@ -66,8 +68,8 @@ async def receive_message(request: Request):
 
             #         print(f"Bot: {reply}")
 
+
             # ===== Comments =====
-            processed_comments = set()
 
             if entry.get("changes"):
                 for change in entry.get("changes"):
