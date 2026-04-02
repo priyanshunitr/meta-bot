@@ -86,6 +86,7 @@ async def receive_message(request: Request):
 
                     reply = await generate_reply(text)
                     send_instagram_comment_reply(comment_id, reply)
+                    print("Comment ID:", comment_id)
 
                     print(f"Bot (comment reply): {reply}")
 
