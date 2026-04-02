@@ -82,24 +82,29 @@ async def receive_message(request: Request):
 
 ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 
-def send_instagram_message(recipient_id, message_text):
-    url = "https://graph.facebook.com/v18.0/17841448023461323/messages"
+import requests
 
-    params = {
-        "access_token": ACCESS_TOKEN
-    }
+def send_instagram_message(recipient_id, text):
+    url = "https://graph.facebook.com/v19.0/me/messages"
 
     payload = {
-        "recipient": {"id": recipient_id},
-        "message": {"text": message_text}
+        "recipient": {
+            "id": recipient_id   # ✅ MUST use this
+        },
+        "message": {
+            "text": text
+        }
     }
 
-    response = requests.post(url, params=params, json=payload)
-    print("Send response:", response.text)
+    params = {
+        "access_token": ACCESS_TOKEN  # ✅ Page token only
+    }
 
-@app.post("/send_message")
-async def send_message_endpoint(payload: SendMessageRequest):
-    send_instagram_message(payload.recipient_id, payload.message_text)
-    return {"status": "message sent"}
+    print("Sending to:", recipient_id)   # 🔍 debug
+    print("Payload:", payload)
+
+    response = requests.post(url, json=payload, params=params)
+
+    print("Send response:", response.text)
 
 
