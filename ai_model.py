@@ -11,12 +11,12 @@ chat_history = [
     SystemMessage(content = 'You are a helpful assistant')
 ]
 
-with open (r'D:\old\Dev\meta-bot\chat_history.txt') as f:
+chat_history_file = os.path.join(os.path.dirname(__file__), 'chat_history.txt')
+with open(chat_history_file) as f:
     chat_history.extend(f.readlines())
 
 print ('chat_history : ', chat_history)
 
-# user = input("You: ")
 template = ChatPromptTemplate([
     ('system', 'You are a helpful AI assistant'),
     MessagesPlaceholder ( variable_name = 'recorded_chats')
