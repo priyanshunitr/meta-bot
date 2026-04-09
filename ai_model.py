@@ -8,12 +8,27 @@ load_dotenv()
 model = ChatOpenAI()
 
 chat_history = [
-    SystemMessage(content='You are a helpful AI assistant')
+    SystemMessage(content = 'You are a helpful assistant')
 ]
 
+with open (r'D:\old\Dev\meta-bot\chat_history.txt') as f:
+    chat_history.extend(f.readlines())
+
+print ('chat_history : ', chat_history)
+
+# user = input("You: ")
 template = ChatPromptTemplate([
-    MessagesPlaceholder(variable_name='recorded_chats')
+    ('system', 'You are a helpful AI assistant'),
+    MessagesPlaceholder ( variable_name = 'recorded_chats')
 ])
+
+# chat_history = [
+#     SystemMessage(content='You are a helpful AI assistant')
+# ]
+
+# template = ChatPromptTemplate([
+#     MessagesPlaceholder(variable_name='recorded_chats')
+# ])
 
 
 async def generate_reply(message: str):

@@ -1,0 +1,6 @@
+Human: Hi, I placed an order yesterday and I want to check the status.
+AI: Sure, I can help with that. Please share your order ID.
+Human: My order ID is ORD-1024.
+AI: Thanks. Your order is currently in transit and expected by Friday.
+Human: I also requested a refund for another order last week.
+AI: I see the refund request. It is being processed and should reflect in 3-5 business days.
