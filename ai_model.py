@@ -13,7 +13,7 @@ chat_history_file = os.path.join(os.path.dirname(__file__), 'chat_history.txt')
 with open(chat_history_file) as f:
     chat_history.extend(f.readlines())
 
-print ('chat_history : ', chat_history)
+print ('chat_history : loaded')
 
 template = ChatPromptTemplate([
     ('system', 'You are a helpful AI assistant, '),
@@ -33,7 +33,6 @@ async def generate_reply(message: str):
     # Add user message
     chat_history.append(HumanMessage(content=message))
 
-    # Build prompt
     # Build prompt
     prompt = template.invoke({
         'recorded_chats': chat_history
