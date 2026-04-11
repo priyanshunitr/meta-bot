@@ -29,8 +29,7 @@ def get_context(query):
     results = client.query_points(
         collection_name="clinqo",
         query=query_vector,
-        limit=3
-    )
+        limit=1    )
     
     all_texts = []
     
@@ -40,3 +39,5 @@ def get_context(query):
     
     combined_context = "\n".join(all_texts)
     return (combined_context, "\n")
+
+print(get_context("Who is DOC103"))
