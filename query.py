@@ -34,9 +34,12 @@ def get_context(query):
     
     all_texts = []
     
+    print(f"DEBUG: Searching Qdrant for '{query}'...")
     for r in results.points:
         point = r[0] if isinstance(r, tuple) else r
-        all_texts.append(point.payload.get("text", "")[:300])
+        text = point.payload.get("text", "")
+        all_texts.append(text[:1000])
     
+    print(f"DEBUG: Found {len(all_texts)} matching chunks.")
     combined_context = "\n".join(all_texts)
     return combined_context
