@@ -7,9 +7,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 load_dotenv()
 model = ChatOpenAI()
 
-chat_history = [
-    SystemMessage(content = 'You are a helpful assistant')
-]
+chat_history = []
 
 chat_history_file = os.path.join(os.path.dirname(__file__), 'chat_history.txt')
 with open(chat_history_file) as f:
