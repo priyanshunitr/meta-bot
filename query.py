@@ -10,9 +10,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 client_openai = OpenAI(api_key=OPENAI_API_KEY)
 client = QdrantClient(
-    host=QDRANT_URL,
-    port=443,
-    https=True,
+    url=QDRANT_URL,
     timeout=60
 )
 
