@@ -4,3 +4,167 @@ Human: My order ID is ORD-1024.
 AI: Thanks. Your order is currently in transit and expected by Friday.
 Human: I also requested a refund for another order last week.
 AI: I see the refund request. It is being processed and should reflect in 3-5 business days.
+Human: These are some data from your company docs.
+Doctor Directory
+Dr. A Kumar (ID: DOC100) is a Dermatologist with 13 years of experience. They are rated 4.8/5 by
+patients. Dr. A is known for providing patient-centric care and has handled numerous cases related
+to dermatologist conditions. They are currently available for both in-person consultations and
+telemedicine sessions. The doctor actively participates in medical research and continuous learning
+programs.
+Dr. B Kumar (ID: DOC101) is a Orthopedic with 4 years of experience. They are rated 4.2/5 by
+patients. Dr. B is known for providing patient-centric care and has handled numerous cases related
+to orthopedic conditions. They are currently available for both in-person consultations and
+telemedicine sessions. The doctor actively participates in medical research and continuous learning
+programs.
+Dr. C Kumar (ID: DOC102) is a Cardiologist with 17 years of experience. They are rated 4.0/5 by
+patients. Dr. C is known for providing patient-centric care and has handled numerous cases related
+to cardiologist conditions. They are currently available for both in-person consultations and
+telemedicine sessions. The doctor actively participates in medical research and continuous learning
+programs.
+Dr. D Kumar (ID: DOC103) is a Neurologist with 14 years of experience. They are rated 4.1/5 by
+patients. Dr. D is known for providing patient-centric care and has handled numerous cases related
+to neurologist conditions. They are currently available for both in-person consultations and
+telemedicine sessions. The doctor actively participates in medical research and continuous learning
+programs.
+Dr. E Kumar (ID: DOC104) is a Dermatologist with 7 years of experience. They are rated 4.4/5 by
+patients. Dr. E is known for providing patient-centric care and has handled numerous cases related
+to dermatologist conditions. They are currently available for both in-person consultations and
+telemedicine sessions. The doctor actively participates in medical research and continuous learning
+programs.
+Dr. F Kumar (ID: DOC105) is a General Physician with 4 years of experience. They are rated 4.6/5
+by patients. Dr. F is known for providing patient-centric care and has handled numerous cases
+related to general physician conditions. They are currently available for both in-person consultations
+and telemedicine sessions. The doctor actively participates in medical research and continuous
+learning programs.
+Dr. G Kumar (ID: DOC106) is a General Physician with 19 years of experience. They are rated
+4.5/5 by patients. Dr. G is known for providing patient-centric care and has handled numerous
+cases related to general physician conditions. They are currently available for both in-person
+consultations and telemedicine sessions. The doctor actively participates in medical research and
+continuous learning programs.
+Dr. H Kumar (ID: DOC107) is a Dermatologist with 3 years of experience. They are rated 4.4/5 by
+patients. Dr. H is known for providing patient-centric care and has handled numerous cases related
+to dermatologist conditions. They are currently available for both in-person consultations and
+telemedicine sessions. The doctor actively participates in medical research and continuous learning
+programs.
+Dr. I Kumar (ID: DOC108) is a Orthopedic with 11 years of experience. They are rated 3.8/5 by
+patients. Dr. I is known for providing patient-centric care and has handled numerous cases related
+to orthopedic conditions. They are currently available for both in-person consultations and
+telemedicine sessions. The doctor actively participates in medical research and continuous learning
+programs.
+Dr. J Kumar (ID: DOC109) is a Neurologist with 9 years of experience. They are rated 5.0/5 by
+patients. Dr. J is known for providing patient-centric care and has handled numerous cases related
+to neurologist conditions. They are currently available for both in-person consultations and
+telemedicine sessions. The doctor actively participates in medical research and continuous learning
+programs.
+Patient Records
+Patient 1 (ID: PAT1000), aged 59, is currently being treated for Hypertension. The patient is
+assigned to doctor DOC106 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 2 (ID: PAT1001), aged 48, is currently being treated for Flu. The patient is assigned to
+doctor DOC105 for ongoing consultation and follow-ups. Recent observations indicate stable
+condition with gradual improvement. The patient has been prescribed standard medication and
+advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
+Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
+Patient 3 (ID: PAT1002), aged 68, is currently being treated for Asthma. The patient is assigned to
+doctor DOC107 for ongoing consultation and follow-ups. Recent observations indicate stable
+condition with gradual improvement. The patient has been prescribed standard medication and
+advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
+Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
+Patient 4 (ID: PAT1003), aged 23, is currently being treated for Cardiac Issue. The patient is
+assigned to doctor DOC105 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 5 (ID: PAT1004), aged 32, is currently being treated for Cardiac Issue. The patient is
+assigned to doctor DOC104 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 6 (ID: PAT1005), aged 67, is currently being treated for Diabetes. The patient is assigned to
+doctor DOC101 for ongoing consultation and follow-ups. Recent observations indicate stable
+condition with gradual improvement. The patient has been prescribed standard medication and
+advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
+Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
+Patient 7 (ID: PAT1006), aged 51, is currently being treated for Diabetes. The patient is assigned to
+doctor DOC105 for ongoing consultation and follow-ups. Recent observations indicate stable
+condition with gradual improvement. The patient has been prescribed standard medication and
+advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
+Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
+Patient 8 (ID: PAT1007), aged 36, is currently being treated for Hypertension. The patient is
+assigned to doctor DOC101 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 9 (ID: PAT1008), aged 55, is currently being treated for Flu. The patient is assigned to
+doctor DOC104 for ongoing consultation and follow-ups. Recent observations indicate stable
+condition with gradual improvement. The patient has been prescribed standard medication and
+advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
+Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
+Patient 10 (ID: PAT1009), aged 61, is currently being treated for Cardiac Issue. The patient is
+assigned to doctor DOC101 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 11 (ID: PAT1010), aged 65, is currently being treated for Flu. The patient is assigned to
+doctor DOC105 for ongoing consultation and follow-ups. Recent observations indicate stable
+condition with gradual improvement. The patient has been prescribed standard medication and
+advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
+Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
+Patient 12 (ID: PAT1011), aged 29, is currently being treated for Hypertension. The patient is
+assigned to doctor DOC101 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 13 (ID: PAT1012), aged 52, is currently being treated for Hypertension. The patient is
+assigned to doctor DOC108 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 14 (ID: PAT1013), aged 40, is currently being treated for Hypertension. The patient is
+assigned to doctor DOC104 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 15 (ID: PAT1014), aged 51, is currently being treated for Cardiac Issue. The patient is
+assigned to doctor DOC102 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 16 (ID: PAT1015), aged 38, is currently being treated for Cardiac Issue. The patient is
+assigned to doctor DOC107 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 17 (ID: PAT1016), aged 33, is currently being treated for Asthma. The patient is assigned to
+doctor DOC104 for ongoing consultation and follow-ups. Recent observations indicate stable
+condition with gradual improvement. The patient has been prescribed standard medication and
+advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
+Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
+Patient 18 (ID: PAT1017), aged 45, is currently being treated for Asthma. The patient is assigned to
+doctor DOC103 for ongoing consultation and follow-ups. Recent observations indicate stable
+condition with gradual improvement. The patient has been prescribed standard medication and
+advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
+Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
+Patient 19 (ID: PAT1018), aged 31, is currently being treated for Cardiac Issue. The patient is
+assigned to doctor DOC100 for ongoing consultation and follow-ups. Recent observations indicate
+stable condition with gradual improvement. The patient has been prescribed standard medication
+and advised lifestyle changes including regular exercise, balanced diet, and periodic health
+monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
+coming weeks.
+Patient 20 (ID: PAT1019), aged 18, is currently being treated for Asthma. The patient is assigned to
+doctor DOC100 for ongoing consultation and follow-ups. Recent observations indicate stable
+condition with gradual improvement. The patient has been prescribed standard medication and
+advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
+Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks

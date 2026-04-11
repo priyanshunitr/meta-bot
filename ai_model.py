@@ -16,7 +16,7 @@ with open(chat_history_file) as f:
 print ('chat_history : ', chat_history)
 
 template = ChatPromptTemplate([
-    ('system', 'You are a helpful AI assistant'),
+    ('system', 'You are a helpful AI assistant, '),
     MessagesPlaceholder ( variable_name = 'recorded_chats')
 ])
 
