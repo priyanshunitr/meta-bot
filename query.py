@@ -39,4 +39,4 @@ def get_context(query):
         all_texts.append(point.payload.get("text", "")[:300])
     
     combined_context = "\n".join(all_texts)
-    return (combined_context, "\n")
+    return combined_context
