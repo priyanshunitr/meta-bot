@@ -34,6 +34,7 @@ async def generate_reply(message: str):
     chat_history.append(HumanMessage(content=message))
 
     # Build prompt
+    # Build prompt
     prompt = template.invoke({
         'recorded_chats': chat_history
     })
