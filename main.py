@@ -35,84 +35,62 @@ async def verify(
 
 processed_comments = set()
 
+
+
+import threading
+import asyncio
+
 @app.post("/webhook")
 async def receive_message(request: Request):
     data = await request.json()
     print("Incoming:", data)
 
-    try:
-        entry_list = data.get("entry")
-        if not entry_list:
-            return {"status": "no entry"}
+    def background_task(data):
+        try:
+            entry_list = data.get("entry")
+            if not entry_list:
+                return
 
-        for entry in entry_list:
+            for entry in entry_list:
+                if entry.get("changes"):
+                    for change in entry.get("changes"):
 
-            # ===== DMs =====
-            # messaging_list = entry.get("messaging")
-            # if messaging_list:
-            #     for msg_event in messaging_list:
+                        if change.get("field") != "comments":
+                            continue
 
-            #         if msg_event.get("message", {}).get("is_echo"):
-            #             continue
+                        value = change.get("value", {})
 
-            #         sender_id = msg_event.get("sender", {}).get("id")
-            #         text = msg_event.get("message", {}).get("text")
+                        comment_id = value.get("id")
+                        text = value.get("text")
+                        username = value.get("from", {}).get("username")
 
-            #         if not sender_id or not text:
-            #             continue
+                        if value.get("parent_id"):
+                            continue
 
-            #         print(f"User (DM): {text}")
+                        if comment_id in processed_comments:
+                            continue
 
-            #         reply = await generate_reply(text)
-            #         send_instagram_message(sender_id, reply)
+                        processed_comments.add(comment_id)
 
-            #         print(f"Bot: {reply}")
+                        if username == "_clinqo":
+                            continue
 
+                        if not text:
+                            continue
 
-            # ===== Comments =====
+                        print(f"{username}: {text}")
 
-            if entry.get("changes"):
-                for change in entry.get("changes"):
+                        reply = asyncio.run(generate_reply(text))
+                        send_instagram_comment_reply(comment_id, reply)
 
-                    if change.get("field") != "comments":
-                        continue
+                        print("Reply sent")
 
-                    value = change.get("value", {})
+        except Exception as e:
+            print("ERROR:", e)
 
-                    comment_id = value.get("id")
-                    text = value.get("text")
-                    username = value.get("from", {}).get("username")
-                    commenter_id = value.get("from", {}).get("id")
+    threading.Thread(target=background_task, args=(data,)).start()
 
-                    # Ignore replies (prevents loops)
-                    if value.get("parent_id"):
-                        continue
-
-                    # Deduplicate
-                    if comment_id in processed_comments:
-                        continue
-
-                    processed_comments.add(comment_id)
-
-                    # Ignore bot itself
-                    if username == "_clinqo":
-                        continue
-
-                    if not text:
-                        continue
-
-                    print(f"{username} (comment): {text}")
-
-                    reply = await generate_reply(text)
-                    send_instagram_comment_reply(comment_id, reply)
-
-                    print("Comment ID:", comment_id)
-                    print(f"Bot (comment reply): {reply}")
-
-    except Exception as e:
-        print("Error:", str(e))
-
-    return {"status": "ok"}
+    return {"status": "ok"} 
 
 #------------------Send Reply to Instagram----------------------
 
