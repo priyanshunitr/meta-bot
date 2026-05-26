@@ -4,167 +4,94 @@ Human: My order ID is ORD-1024.
 AI: Thanks. Your order is currently in transit and expected by Friday.
 Human: I also requested a refund for another order last week.
 AI: I see the refund request. It is being processed and should reflect in 3-5 business days.
-Human: These are some data from your company docs.
-Doctor Directory
-Dr. A Kumar (ID: DOC100) is a Dermatologist with 13 years of experience. They are rated 4.8/5 by
-patients. Dr. A is known for providing patient-centric care and has handled numerous cases related
-to dermatologist conditions. They are currently available for both in-person consultations and
-telemedicine sessions. The doctor actively participates in medical research and continuous learning
-programs.
-Dr. B Kumar (ID: DOC101) is a Orthopedic with 4 years of experience. They are rated 4.2/5 by
-patients. Dr. B is known for providing patient-centric care and has handled numerous cases related
-to orthopedic conditions. They are currently available for both in-person consultations and
-telemedicine sessions. The doctor actively participates in medical research and continuous learning
-programs.
-Dr. C Kumar (ID: DOC102) is a Cardiologist with 17 years of experience. They are rated 4.0/5 by
-patients. Dr. C is known for providing patient-centric care and has handled numerous cases related
-to cardiologist conditions. They are currently available for both in-person consultations and
-telemedicine sessions. The doctor actively participates in medical research and continuous learning
-programs.
-Dr. D Kumar (ID: DOC103) is a Neurologist with 14 years of experience. They are rated 4.1/5 by
-patients. Dr. D is known for providing patient-centric care and has handled numerous cases related
-to neurologist conditions. They are currently available for both in-person consultations and
-telemedicine sessions. The doctor actively participates in medical research and continuous learning
-programs.
-Dr. E Kumar (ID: DOC104) is a Dermatologist with 7 years of experience. They are rated 4.4/5 by
-patients. Dr. E is known for providing patient-centric care and has handled numerous cases related
-to dermatologist conditions. They are currently available for both in-person consultations and
-telemedicine sessions. The doctor actively participates in medical research and continuous learning
-programs.
-Dr. F Kumar (ID: DOC105) is a General Physician with 4 years of experience. They are rated 4.6/5
-by patients. Dr. F is known for providing patient-centric care and has handled numerous cases
-related to general physician conditions. They are currently available for both in-person consultations
-and telemedicine sessions. The doctor actively participates in medical research and continuous
-learning programs.
-Dr. G Kumar (ID: DOC106) is a General Physician with 19 years of experience. They are rated
-4.5/5 by patients. Dr. G is known for providing patient-centric care and has handled numerous
-cases related to general physician conditions. They are currently available for both in-person
-consultations and telemedicine sessions. The doctor actively participates in medical research and
-continuous learning programs.
-Dr. H Kumar (ID: DOC107) is a Dermatologist with 3 years of experience. They are rated 4.4/5 by
-patients. Dr. H is known for providing patient-centric care and has handled numerous cases related
-to dermatologist conditions. They are currently available for both in-person consultations and
-telemedicine sessions. The doctor actively participates in medical research and continuous learning
-programs.
-Dr. I Kumar (ID: DOC108) is a Orthopedic with 11 years of experience. They are rated 3.8/5 by
-patients. Dr. I is known for providing patient-centric care and has handled numerous cases related
-to orthopedic conditions. They are currently available for both in-person consultations and
-telemedicine sessions. The doctor actively participates in medical research and continuous learning
-programs.
-Dr. J Kumar (ID: DOC109) is a Neurologist with 9 years of experience. They are rated 5.0/5 by
-patients. Dr. J is known for providing patient-centric care and has handled numerous cases related
-to neurologist conditions. They are currently available for both in-person consultations and
-telemedicine sessions. The doctor actively participates in medical research and continuous learning
-programs.
-Patient Records
-Patient 1 (ID: PAT1000), aged 59, is currently being treated for Hypertension. The patient is
-assigned to doctor DOC106 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 2 (ID: PAT1001), aged 48, is currently being treated for Flu. The patient is assigned to
-doctor DOC105 for ongoing consultation and follow-ups. Recent observations indicate stable
-condition with gradual improvement. The patient has been prescribed standard medication and
-advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
-Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
-Patient 3 (ID: PAT1002), aged 68, is currently being treated for Asthma. The patient is assigned to
-doctor DOC107 for ongoing consultation and follow-ups. Recent observations indicate stable
-condition with gradual improvement. The patient has been prescribed standard medication and
-advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
-Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
-Patient 4 (ID: PAT1003), aged 23, is currently being treated for Cardiac Issue. The patient is
-assigned to doctor DOC105 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 5 (ID: PAT1004), aged 32, is currently being treated for Cardiac Issue. The patient is
-assigned to doctor DOC104 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 6 (ID: PAT1005), aged 67, is currently being treated for Diabetes. The patient is assigned to
-doctor DOC101 for ongoing consultation and follow-ups. Recent observations indicate stable
-condition with gradual improvement. The patient has been prescribed standard medication and
-advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
-Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
-Patient 7 (ID: PAT1006), aged 51, is currently being treated for Diabetes. The patient is assigned to
-doctor DOC105 for ongoing consultation and follow-ups. Recent observations indicate stable
-condition with gradual improvement. The patient has been prescribed standard medication and
-advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
-Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
-Patient 8 (ID: PAT1007), aged 36, is currently being treated for Hypertension. The patient is
-assigned to doctor DOC101 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 9 (ID: PAT1008), aged 55, is currently being treated for Flu. The patient is assigned to
-doctor DOC104 for ongoing consultation and follow-ups. Recent observations indicate stable
-condition with gradual improvement. The patient has been prescribed standard medication and
-advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
-Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
-Patient 10 (ID: PAT1009), aged 61, is currently being treated for Cardiac Issue. The patient is
-assigned to doctor DOC101 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 11 (ID: PAT1010), aged 65, is currently being treated for Flu. The patient is assigned to
-doctor DOC105 for ongoing consultation and follow-ups. Recent observations indicate stable
-condition with gradual improvement. The patient has been prescribed standard medication and
-advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
-Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
-Patient 12 (ID: PAT1011), aged 29, is currently being treated for Hypertension. The patient is
-assigned to doctor DOC101 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 13 (ID: PAT1012), aged 52, is currently being treated for Hypertension. The patient is
-assigned to doctor DOC108 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 14 (ID: PAT1013), aged 40, is currently being treated for Hypertension. The patient is
-assigned to doctor DOC104 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 15 (ID: PAT1014), aged 51, is currently being treated for Cardiac Issue. The patient is
-assigned to doctor DOC102 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 16 (ID: PAT1015), aged 38, is currently being treated for Cardiac Issue. The patient is
-assigned to doctor DOC107 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 17 (ID: PAT1016), aged 33, is currently being treated for Asthma. The patient is assigned to
-doctor DOC104 for ongoing consultation and follow-ups. Recent observations indicate stable
-condition with gradual improvement. The patient has been prescribed standard medication and
-advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
-Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
-Patient 18 (ID: PAT1017), aged 45, is currently being treated for Asthma. The patient is assigned to
-doctor DOC103 for ongoing consultation and follow-ups. Recent observations indicate stable
-condition with gradual improvement. The patient has been prescribed standard medication and
-advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
-Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks.
-Patient 19 (ID: PAT1018), aged 31, is currently being treated for Cardiac Issue. The patient is
-assigned to doctor DOC100 for ongoing consultation and follow-ups. Recent observations indicate
-stable condition with gradual improvement. The patient has been prescribed standard medication
-and advised lifestyle changes including regular exercise, balanced diet, and periodic health
-monitoring. Last consultation took place in March 2026, with the next follow-up scheduled in the
-coming weeks.
-Patient 20 (ID: PAT1019), aged 18, is currently being treated for Asthma. The patient is assigned to
-doctor DOC100 for ongoing consultation and follow-ups. Recent observations indicate stable
-condition with gradual improvement. The patient has been prescribed standard medication and
-advised lifestyle changes including regular exercise, balanced diet, and periodic health monitoring.
-Last consultation took place in March 2026, with the next follow-up scheduled in the coming weeks
+Human: Give me the company product details.
+AI: MediCare Supplies Catalog — 2025
+20 Items | Free shipping above $99 | 60-day returns
+
+01 DIAGNOSTIC EQUIPMENT
+Blood Pressure Monitor
+SKU: DIAG-001 | Price: $49.99 $64.99 | Rating: 4.8/5 | Stock: 430
+Upper arm monitor with dual-user memory, irregular heartbeat detection, and large backlit display. Clinically validated for home use.
+Cuff Size: 22-42cm | Memory: 2 x 120 readings | Power: 4x AA or USB-C | Certifications: FDA cleared, CE | Warranty: 3 years
+Blood Glucose Meter
+SKU: DIAG-002 | Price: $34.99 | Rating: 4.7/5 | Stock: 310
+5-second readings with 500-reading memory and 7, 14, 30-day averages. Kit includes lancing device, 10 lancets, and 10 test strips.
+Sample Size: 0.5 microliters | Range: 20-600 mg/dL | Certifications: FDA cleared, ISO 15197:2013 | Warranty: 5 years on meter
+Infrared Thermometer
+SKU: DIAG-003 | Price: $28.99 $39.99 | Rating: 4.6/5 | Stock: 620
+Non-contact, 1-second reading with fever alert and 32-reading memory. Color-coded display (green/orange/red). Silent mode for sleeping patients.
+Accuracy: ±0.2°C | Range: 32-43°C | Distance: 3-5cm | Power: 2x AAA | Warranty: 2 years
+Fingertip Pulse Oximeter
+SKU: DIAG-004 | Price: $22.99 $34.99 | Rating: 4.7/5 | Stock: 880
+Measures SpO2 and pulse rate in 10 seconds. Rotating OLED display, includes lanyard and carry pouch.
+SpO2 Range: 70-99% | Pulse Rate: 30-250 bpm | Accuracy: ±2% | Battery: 2x AAA (30 hrs) | Certifications: FDA, CE | Warranty: 2 years
+Digital Eye Chart
+SKU: DIAG-005 | Price: $189.00 | Rating: 4.5/5 | Stock: 55
+22-inch LED wall-mounted chart with 30 built-in optotype tests, adjustable brightness, and remote control. For clinic use.
+Charts: Snellen, Tumbling E, Landolt C | Brightness: 10 levels | Mount: Wall bracket included | Warranty: 2 years
+
+02 MOBILITY & REHABILITATION
+Folding Walking Cane
+SKU: MOBL-001 | Price: $39.99 $54.99 | Rating: 4.7/5 | Stock: 260
+Lightweight aluminum cane with soft-grip handle, adjustable height, and quad base tip. Folds into 4 sections for travel.
+Height: 71-96cm adjustable | Capacity: 136kg | Weight: 540g | Colors: Black, Silver, Rose Gold | Warranty: 1 year
+Hinged Knee Brace
+SKU: MOBL-002 | Price: $64.99 | Rating: 4.8/5 | Stock: 185
+Medical-grade brace with bilateral polycentric hinges, adjustable range of motion, and breathable neoprene lining. For post-surgery recovery and ligament support.
+ROM Control: 0-120 degrees | Sizes: S to XXL | Use: ACL/MCL recovery, osteoarthritis | Warranty: 1 year
+Finger Exercise Rings (5-pack)
+SKU: MOBL-003 | Price: $18.99 | Rating: 4.6/5 | Stock: 740
+Progressive resistance silicone rings for stroke recovery, arthritis management, and hand strengthening. Includes carry case and exercise guide.
+Resistance: Extra Soft to Extra Hard (5 levels) | Material: Medical-grade silicone | Latex Free: Yes | Warranty: 6 months
+Forearm Crutches (pair)
+SKU: MOBL-004 | Price: $79.00 $99.00 | Rating: 4.7/5 | Stock: 120
+Ergonomic aluminum crutches with anatomical grip, adjustable forearm cuff, and non-slip rubber tips. Folds flat for travel.
+Height: 83-95cm adjustable | Capacity: 120kg | Weight: 680g each | Warranty: 2 years
+Lumbar Support Cushion
+SKU: MOBL-005 | Price: $44.99 $59.99 | Rating: 4.8/5 | Stock: 510
+Memory foam cushion with dual adjustment straps. Fits all chair types. Breathable mesh cover, removable and washable.
+Dimensions: 38x30x12cm | Best For: Office chairs, car seats, wheelchairs | Warranty: 1 year
+
+03 WOUND CARE & CONSUMABLES
+Hydrocolloid Wound Dressings (30-pack)
+SKU: WUND-001 | Price: $24.99 | Rating: 4.9/5 | Stock: 950
+Maintains moist healing environment, absorbs exudate, waterproof and self-adhesive. Wear time up to 7 days.
+Sizes: 5x5cm, 10x10cm, 10x20cm (10 of each) | Sterile: Individually wrapped | Latex Free: Yes
+Adhesive Bandages (100-pack)
+SKU: WUND-002 | Price: $12.99 $17.99 | Rating: 4.7/5 | Stock: 1800
+Flexible fabric bandages with non-stick wound pad. Assorted sizes. Hypoallergenic and latex-free.
+Sizes: Small, medium, large, knuckle, fingertip | Material: Breathable fabric | Sterile: Yes
+Cohesive Bandage Rolls (12-pack)
+SKU: WUND-003 | Price: $19.99 | Rating: 4.6/5 | Stock: 670
+Self-adhesive rolls that stick to themselves, not skin. Tears by hand. For securing dressings and sports strapping.
+Size: 5cm x 4.5m per roll | Colors: Assorted | Latex Free: Yes
+Waterproof Cast Cover
+SKU: WUND-004 | Price: $16.99 | Rating: 4.5/5 | Stock: 420
+Reusable airtight sleeve that keeps casts and dressings dry during bathing and showering.
+Sizes: Child arm, Adult arm, Adult leg | Reusable: Yes | Material: PVC with rubber seal
+Sterile Gauze Pads (50-pack)
+SKU: WUND-005 | Price: $9.99 | Rating: 4.8/5 | Stock: 2100
+Non-woven sterile gauze pads for wound cleaning, dressing, and absorption. Individually wrapped.
+Sizes: 5x5cm and 10x10cm (25 of each) | Ply: 12-ply | Sterile: Individually wrapped | Latex Free: Yes
+
+04 PERSONAL PROTECTIVE EQUIPMENT
+Surgical Face Masks (50-pack)
+SKU: PPE-001 | Price: $14.99 | Rating: 4.7/5 | Stock: 3400
+3-ply disposable surgical masks with adjustable nose wire and ear loops. Fluid resistant outer layer. BFE greater than 98%.
+Layers: 3-ply (outer fluid resistant, melt-blown filter, inner soft layer) | BFE: >98% | Fit: Adjustable nose wire | Colors: Blue, White, Black | Certifications: ASTM Level 2, CE
+Nitrile Exam Gloves (100-pack)
+SKU: PPE-002 | Price: $18.99 $24.99 | Rating: 4.8/5 | Stock: 1600
+Powder-free nitrile gloves with textured fingertips for grip. Ambidextrous, latex-free, and suitable for clinical and food-safe use.
+Sizes: XS, S, M, L, XL | Thickness: 3.5 mil | Latex Free: Yes | Powder Free: Yes | Certifications: FDA, CE, EN374
+Disposable Aprons (100-pack)
+SKU: PPE-003 | Price: $22.99 | Rating: 4.6/5 | Stock: 890
+Lightweight polyethylene disposable aprons on a perforated roll. Fluid resistant, one-size-fits-most. For clinical, catering, and lab use.
+Material: Polyethylene | Size: 69 x 117cm | Colors: Blue, White, Yellow | Fluid Resistant: Yes
+Safety Goggles
+SKU: PPE-004 | Price: $12.99 | Rating: 4.5/5 | Stock: 540
+Reusable indirect-vent safety goggles with anti-fog coating and adjustable head strap. Fits over prescription glasses.
+Lens: Polycarbonate anti-fog | Vent: Indirect (splash protection) | Fits Over: Prescription glasses | Certifications: ANSI Z87.1, CE EN166 | Warranty: 1 year
+Hand Sanitiser Gel (1L)
+SKU: PPE-005 | Price: $8.99 $12.99 | Rating: 4.9/5 | Stock: 2800
+Hospital-grade 70% ethanol hand sanitiser gel. Kills 99.9% of bacteria and enveloped viruses. Non-sticky, fast-drying, with added aloe vera to prevent skin drying.
+Alcohol Content: 70% ethanol | Efficacy: 99.9% bacteria kill | Skin Care: Aloe vera added | Size: 1 litre pump bottle | Certifications: WHO formulation compliant, CE.
