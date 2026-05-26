@@ -109,7 +109,7 @@ Alcohol Content: 70% ethanol | Efficacy: 99.9% bacteria kill | Skin Care: Aloe v
 '''
 
 template = ChatPromptTemplate([
-    ('system', "You are a helpful assistant for a company named Clinqo. Use the following context and previous chat history to answer the user's question.\n\nContext:\n{context}\n\Follow this info : {var} Chats:\n{recorded_chats}"),
+    ('system', "You are a helpful assistant for a company named Clinqo. Use the following context and previous chat history to answer the user's question.\n\nContext:\n{context}\n\nFollow this info:\n{var}\n\nChats:\n{recorded_chats}"),
     MessagesPlaceholder(variable_name='recorded_chats'),
     ('human', "{input}")
 ])
